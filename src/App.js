@@ -1,8 +1,11 @@
-function App() {
+import { ParallaxProvider } from 'react-scroll-parallax';
+import MainCanvas from "./MainCanvas";
+
+const App = () => {
   return (
-    <div className="App">
-     <h1>This is a test</h1>
-    </div>
+    <ParallaxProvider>
+      <MainCanvas />
+    </ParallaxProvider>
   );
 }
 
