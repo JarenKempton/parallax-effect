@@ -4,6 +4,17 @@ import Mountains from "./img/placeholder-mtns.png";
 import OtherMountains from "./img/placeholder-mtns-2.png";
 import Trees from "./img/placeholder-trees.webp";
 import Cloud from "./img/cloud.png"
+import Image1 from "./img/1.png";
+import Image2 from "./img/2.png";
+import Image3 from "./img/3.png";
+import Image4 from "./img/4.png";
+import Image5 from "./img/5.png";
+import Image6 from "./img/6.png";
+import Image7 from "./img/7.png";
+import Image8 from "./img/8.png";
+import Image9 from "./img/9.png";
+import Image10 from "./img/10.png";
+
 import "./index.css";
 
 const MainCanvas = () => {
@@ -24,24 +35,24 @@ const MainCanvas = () => {
     console.log(scrollPosition);
 
     return (
-        <div style={{ marginTop: 100, paddingBottom: 1000 }}>
-
+        <div>
+            <div style={{height: 100, width: "100%", backgroundColor: "#B7E4E5"}}></div>
             <ParallaxBanner style={{ aspectRatio: '2 / 1' }}>
-                <ParallaxBannerLayer image={Mountains} speed={-20} />
-                <ParallaxBannerLayer speed={-15}>
-                    <div className="inset center">
-                        <h1 className="headline white">Parallax Effect</h1>
-                    </div>
-                </ParallaxBannerLayer>
-                <ParallaxBannerLayer image={Trees} speed={15} />
+                <ParallaxBannerLayer image={Image10} speed={-30} />
+                <ParallaxBannerLayer image={Image9} speed={-25} />
+                <ParallaxBannerLayer image={Image8} speed={-20} />
+                <ParallaxBannerLayer image={Image7} speed={-15} />
                 <ParallaxBannerLayer>
-                    <div style={{ display: "flex", justifyContent: "center", overflow: "visible", marginTop: 90 }}>
-                        <div style={{ display: "flex", width: "100%", justifyContent: "space-around", alignItems: "flex-start" }}>
-                            <img src={Cloud} style={{ transform: `scale(1.5) translateX(-${scrollPosition * 0.1}px)`, marginTop: 95 }} />
-                            <img src={Cloud} style={{ transform: `translateX(${scrollPosition * 0.5}px)` }} />
-                        </div>
+                    <div className="center inset" style={{transform: `translateX(${1200 - (scrollPosition * 5)}px)`}}>
+                        <h1 className="headline gray">Parallax Effect</h1>
                     </div>
                 </ParallaxBannerLayer>
+                <ParallaxBannerLayer image={Image6} speed={0} />
+                <ParallaxBannerLayer image={Image5} speed={0} />
+                <ParallaxBannerLayer image={Image4} speed={0} />
+                <ParallaxBannerLayer image={Image3} speed={-10} />
+                <ParallaxBannerLayer image={Image2} speed={-5} />
+                <ParallaxBannerLayer image={Image1} speed={10} />
             </ParallaxBanner>
             <div className="content-body">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo a diam sollicitudin tempor id eu nisl. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Imperdiet massa tincidunt nunc pulvinar sapien et. Duis at tellus at urna condimentum mattis. Rhoncus est pellentesque elit ullamcorper dignissim. Tincidunt id aliquet risus feugiat in ante metus. Integer vitae justo eget magna fermentum iaculis. Arcu non odio euismod lacinia at quis risus sed vulputate. Cursus sit amet dictum sit amet.
