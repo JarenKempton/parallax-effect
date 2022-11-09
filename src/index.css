@@ -1,44 +1,64 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  height: 200vh;
-  background-color: #3E3959;
+ padding: 0;
+ margin: 0;
+ height: 200vh;
+ background-color: #3e3959;
 }
 
+@media only screen and (min-width: 100px) {
+ .headline {
+  font-size: 55px !important;
+ }
+}
+
+@media only screen and (min-width: 1000px) {
+ .headline {
+  font-size: 130px !important;
+ }
+}
 .headline {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 10vw;
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-weight: 400;
+ font-size: 55px;
 }
 
 .inset {
-  position: absolute;
-  inset: 0;
+ position: absolute;
+ inset: 0;
 }
 .white {
-  color: white;
+ color: white;
 }
 .gray {
-  color: #446;
+ color: #446;
 }
 
 .full {
-  height: 100vh;
+ height: 100vh;
 }
 
 .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .gradient {
-  background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
+ background: linear-gradient(rgba(14, 62, 151, 0.5) 50%, black);
 }
 
 .content-body {
-    background-color: #3E3959;
-    height: 100vh;
-    color: white;
+ background-color: #3e3959;
+ height: 100vh;
+ color: white;
+}
+
+.blur-background {
+    background: rgba( 62, 57, 89, 0.95 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }

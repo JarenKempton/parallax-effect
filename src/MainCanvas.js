@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
-import Mountains from "./img/placeholder-mtns.png";
-import OtherMountains from "./img/placeholder-mtns-2.png";
-import Trees from "./img/placeholder-trees.webp";
-import Cloud from "./img/cloud.png"
+import { ParallaxBanner, ParallaxBannerLayer, Parallax } from "react-scroll-parallax";
+import { faker } from "@faker-js/faker";
+import CardGallery from "./components/CardGallery";
 import Image1 from "./img/1.png";
 import Image2 from "./img/2.png";
 import Image3 from "./img/3.png";
@@ -16,13 +14,29 @@ import Image9 from "./img/9.png";
 import Image10 from "./img/10.png";
 
 import "./index.css";
+import loop from "./helpers/loop";
 
 const MainCanvas = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [imageURLs, setImageURLs] = useState([]);
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(Math.floor(position));
     };
+    useEffect(() => {
+        const urlArray = fetchImages(32, 500, 300);
+        setImageURLs([...urlArray]);
+    }, [])
+
+    const fetchImages = (qty, width, height) => {
+        const urlArray = []
+        loop(qty, () => {
+            const url = faker.image.city(width, height, true);
+            urlArray.push(url);
+        });
+        return urlArray;
+    }
+    console.log(imageURLs);
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -36,14 +50,15 @@ const MainCanvas = () => {
 
     return (
         <div>
-            <div style={{height: 100, width: "100%", backgroundColor: "#B7E4E5"}}></div>
-            <ParallaxBanner style={{ aspectRatio: '2 / 1' }}>
+            {/* <div style={{height: 100, width: "100%", backgroundColor: "#B7E4E5"}}></div> */}
+            <ParallaxBanner style={{ aspectRatio: '2 / 1', height: "130vh" }}>
                 <ParallaxBannerLayer image={Image10} speed={-30} />
                 <ParallaxBannerLayer image={Image9} speed={-25} />
                 <ParallaxBannerLayer image={Image8} speed={-20} />
                 <ParallaxBannerLayer image={Image7} speed={-15} />
+                <ParallaxBannerLayer className="blur-background" opacity={[-0.9, 1]} style={{}} />
                 <ParallaxBannerLayer>
-                    <div className="center inset" style={{transform: `translateX(${1200 - (scrollPosition * 5)}px)`}}>
+                    <div className="center inset" style={{ transform: `translateX(${1400 - (scrollPosition * 8)}px)` }}>
                         <h1 className="headline gray">Parallax Effect</h1>
                     </div>
                 </ParallaxBannerLayer>
@@ -55,11 +70,8 @@ const MainCanvas = () => {
                 <ParallaxBannerLayer image={Image1} speed={10} />
             </ParallaxBanner>
             <div className="content-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo a diam sollicitudin tempor id eu nisl. In hendrerit gravida rutrum quisque non tellus orci ac auctor. Imperdiet massa tincidunt nunc pulvinar sapien et. Duis at tellus at urna condimentum mattis. Rhoncus est pellentesque elit ullamcorper dignissim. Tincidunt id aliquet risus feugiat in ante metus. Integer vitae justo eget magna fermentum iaculis. Arcu non odio euismod lacinia at quis risus sed vulputate. Cursus sit amet dictum sit amet.
-                <br />
-                <br />
-                Gravida quis blandit turpis cursus in hac habitasse platea dictumst. Ut diam quam nulla porttitor massa id neque. Gravida quis blandit turpis cursus in hac. Duis tristique sollicitudin nibh sit amet. Mauris vitae ultricies leo integer malesuada nunc vel. Posuere sollicitudin aliquam ultrices sagittis orci a. Tellus molestie nunc non blandit massa enim nec dui. Tortor at auctor urna nunc id. Consectetur a erat nam at lectus urna duis. Sem nulla pharetra diam sit amet. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo.
-
+                <h1 className="center" style={{ fontSize: 50, fontFamily: "sans-serif" }}>Gallery</h1>
+                <CardGallery imageURLs={imageURLs} />
             </div>
         </div>
     );
