@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
 import ImageCard from "./ImageCard";
 import { Grid } from "@material-ui/core";
-import { useTrail, animated } from "react-spring";
 
 const CardGallery = ({ imageURLs = [] }) => { 
     return (
