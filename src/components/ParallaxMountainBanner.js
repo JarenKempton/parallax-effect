@@ -39,8 +39,8 @@ const ParallaxMountainBanner = ({ scrollPosition }) => {
             style={{
               opacity: 0.95,
               display: "block",
-              maxWidth: 550,
-              maxHeight: 300,
+              maxWidth: 450,
+              maxHeight: 200,
               width: "auto",
               height: "auto",
               transform: `translate(-${scrollPosition * 0.09}px, 50px)`
@@ -67,8 +67,8 @@ const ParallaxMountainBanner = ({ scrollPosition }) => {
             style={{
               opacity: 0.95,
               display: "block",
-              maxWidth: 650,
-              maxHeight: 300,
+              maxWidth: 550,
+              maxHeight: 200,
               width: "auto",
               height: "auto",
               transform: `translateX(${scrollPosition * 0.08}px)`
@@ -95,7 +95,7 @@ const ParallaxMountainBanner = ({ scrollPosition }) => {
           <img style={{
             opacity: 0.95,
             display: "block",
-            maxWidth: 450,
+            maxWidth: 400,
             maxHeight: 200,
             width: "auto",
             height: "auto",
